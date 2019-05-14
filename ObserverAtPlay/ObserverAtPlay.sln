@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObserverAtPlay.Library", "ObserverAtPlay.Library\ObserverAtPlay.Library.csproj", "{F36CAA74-6258-45E7-AAE1-608BFD38304C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObserverAtPlay.Tests", "ObserverAtPlay.Tests\ObserverAtPlay.Tests.csproj", "{C0484805-B962-43BE-9739-4155BC16E052}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F36CAA74-6258-45E7-AAE1-608BFD38304C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F36CAA74-6258-45E7-AAE1-608BFD38304C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F36CAA74-6258-45E7-AAE1-608BFD38304C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F36CAA74-6258-45E7-AAE1-608BFD38304C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0484805-B962-43BE-9739-4155BC16E052}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0484805-B962-43BE-9739-4155BC16E052}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0484805-B962-43BE-9739-4155BC16E052}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0484805-B962-43BE-9739-4155BC16E052}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
