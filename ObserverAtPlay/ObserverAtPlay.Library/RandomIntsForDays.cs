@@ -6,7 +6,8 @@ namespace ObserverAtPlay.Library
     {
         public int GenerateNumber()
         {
-            return 55;
+            var random = new Random();
+            return random.Next();
         }
     }
 }

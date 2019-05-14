@@ -15,5 +15,16 @@ namespace ObserverAtPlay.Tests
 
             result.ShouldBeOfType<int>();
         }
+
+        [Fact]
+        public void GenerateNewNumberEachTime()
+        {
+            var subject = new RandomIntsForDays();
+
+            var firstNumber = subject.GenerateNumber();
+            var secondNumber = subject.GenerateNumber();
+            
+            firstNumber.ShouldNotBe(secondNumber);
+        }
     }
 }
