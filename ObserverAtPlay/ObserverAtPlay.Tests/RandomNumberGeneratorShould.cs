@@ -64,23 +64,23 @@ namespace ObserverAtPlay.Tests
             numberFan.Received().Notify(Arg.Is(subject.CurrentNumber));
         }
 
-        [Fact]
-        public void NotifySubscribersMultipleTimes()
+        [Theory]
+        [InlineData(1)]
+        [InlineData(3)]
+        public void NotifySubscribersMultipleTimes(int timesToUpdate)
         {
             var subject = new RandomIntsForDays();
             var numberFan = Substitute.For<ISubscriber>();
             subject.AddSubscriber(numberFan);
             var expectedValues = new List<int>();
-            
-            subject.GenerateNumber();
-            expectedValues.Add(subject.CurrentNumber);
-            subject.GenerateNumber();
-            expectedValues.Add(subject.CurrentNumber);
-            subject.GenerateNumber();
-            expectedValues.Add(subject.CurrentNumber);
-            
-            numberFan.Received(3).Notify(Arg.Is<int>(x => expectedValues.Contains(x)));
 
+            for (var i = 0; i < timesToUpdate; i++)
+            {
+                subject.GenerateNumber();
+                expectedValues.Add(subject.CurrentNumber);
+            }
+            
+            numberFan.Received(timesToUpdate).Notify(Arg.Is<int>(x => expectedValues.Contains(x)));
         }
     }
 }
