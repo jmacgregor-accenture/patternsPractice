@@ -20,6 +20,11 @@ namespace ObserverAtPlay.Library
         {
             var random = new Random();
             CurrentNumber = random.Next();
+
+            foreach (var subscriber in Subscribers)
+            {
+                subscriber.Notify(CurrentNumber);
+            }
         }
 
         public void AddSubscriber(ISubscriber subscriber)

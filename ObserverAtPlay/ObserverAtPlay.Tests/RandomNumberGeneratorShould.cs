@@ -1,4 +1,5 @@
 using System.Linq;
+using NSubstitute;
 using ObserverAtPlay.Library;
 using Shouldly;
 using Xunit;
@@ -36,7 +37,7 @@ namespace ObserverAtPlay.Tests
         {
             var subject = new RandomIntsForDays();
 
-            subject.Subscribers.Count().ShouldBe(0);
+            subject.Subscribers.Count.ShouldBe(0);
         }
 
         [Fact]
@@ -47,7 +48,19 @@ namespace ObserverAtPlay.Tests
 
             subject.AddSubscriber(numberFan);
             
-            subject.Subscribers.Count().ShouldBe(1);
+            subject.Subscribers.Count.ShouldBe(1);
+        }
+
+        [Fact]
+        public void NotifySubscribers()
+        {
+            var subject = new RandomIntsForDays();
+            var numberFan = Substitute.For<ISubscriber>();
+            subject.AddSubscriber(numberFan);
+            
+            subject.GenerateNumber();
+
+            numberFan.Received().Notify(Arg.Is(subject.CurrentNumber));
         }
     }
 }
