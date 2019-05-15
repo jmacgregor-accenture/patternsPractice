@@ -52,18 +52,6 @@ namespace ObserverAtPlay.Tests
             subject.Subscribers.Count.ShouldBe(1);
         }
 
-        [Fact]
-        public void NotifySubscribers()
-        {
-            var subject = new RandomIntsForDays();
-            var numberFan = Substitute.For<ISubscriber>();
-            subject.AddSubscriber(numberFan);
-            
-            subject.GenerateNumber();
-
-            numberFan.Received().Notify(Arg.Is(subject.CurrentNumber));
-        }
-
         [Theory]
         [InlineData(1)]
         [InlineData(3)]
@@ -81,6 +69,18 @@ namespace ObserverAtPlay.Tests
             }
             
             numberFan.Received(timesToUpdate).Notify(Arg.Is<int>(x => expectedValues.Contains(x)));
+        }
+
+        [Fact]
+        public void RemoveSubscriber()
+        {
+            var subject = new RandomIntsForDays();
+            var numberFan = new NumberFan();
+            subject.AddSubscriber(numberFan);
+
+            subject.RemoveSubscriber(numberFan);
+            
+            subject.Subscribers.ShouldBeEmpty();
         }
     }
 }

@@ -31,5 +31,10 @@ namespace ObserverAtPlay.Library
         {
             Subscribers.Add(subscriber);
         }
+
+        public void RemoveSubscriber(ISubscriber numberFan)
+        {
+            Subscribers.Remove(numberFan);
+        }
     }
 }
