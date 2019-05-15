@@ -1,3 +1,4 @@
+using System.Linq;
 using ObserverAtPlay.Library;
 using Shouldly;
 using Xunit;
@@ -25,6 +26,14 @@ namespace ObserverAtPlay.Tests
             var secondNumber = subject.GenerateNumber();
             
             firstNumber.ShouldNotBe(secondNumber);
+        }
+
+        [Fact]
+        public void StartWithNoSubscribers()
+        {
+            var subject = new RandomIntsForDays();
+
+            subject.Subscribers.Count().ShouldBe(0);
         }
     }
 }
