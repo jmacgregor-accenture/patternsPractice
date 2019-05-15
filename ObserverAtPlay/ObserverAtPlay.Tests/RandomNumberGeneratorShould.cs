@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using NSubstitute;
 using ObserverAtPlay.Library;
@@ -69,17 +70,16 @@ namespace ObserverAtPlay.Tests
             var subject = new RandomIntsForDays();
             var numberFan = Substitute.For<ISubscriber>();
             subject.AddSubscriber(numberFan);
+            var expectedValues = new List<int>();
             
             subject.GenerateNumber();
-            var firstValue = subject.CurrentNumber;
+            expectedValues.Add(subject.CurrentNumber);
             subject.GenerateNumber();
-            var secondValue = subject.CurrentNumber;
+            expectedValues.Add(subject.CurrentNumber);
             subject.GenerateNumber();
-            var thirdValue = subject.CurrentNumber;
+            expectedValues.Add(subject.CurrentNumber);
             
-            numberFan.Received().Notify(Arg.Is(firstValue));
-            numberFan.Received().Notify(Arg.Is(secondValue));
-            numberFan.Received().Notify(Arg.Is(thirdValue));
+            numberFan.Received(3).Notify(Arg.Is<int>(x => expectedValues.Contains(x)));
 
         }
     }
