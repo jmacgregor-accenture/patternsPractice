@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace ObserverAtPlay.Library
 {
-    public class RandomIntsForDays
+    public class RandomIntsForDays : ISubject
     {
         public int CurrentNumber { get; set; }
         public List<ISubscriber> Subscribers { get;}

@@ -1,3 +1,4 @@
+using NSubstitute;
 using ObserverAtPlay.Library;
 using Shouldly;
 using Xunit;
@@ -23,6 +24,18 @@ namespace ObserverAtPlay.Tests
             subscriber.Notify(newValue);
             
             subscriber.FavoriteNumber.ShouldBe(newValue);
+        }
+
+        [Fact]
+        public void SubscribeToSubject()
+        {
+            var subscriber = new NumberFan();
+            ISubject subject = Substitute.For<ISubject>();
+
+            subscriber.SubscribeTo(subject);
+
+            subject.Received().AddSubscriber(Arg.Is(subscriber));
+            subscriber.Subscription.ShouldBe(subject);
         }
     }
 }
