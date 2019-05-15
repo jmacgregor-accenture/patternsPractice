@@ -62,5 +62,25 @@ namespace ObserverAtPlay.Tests
 
             numberFan.Received().Notify(Arg.Is(subject.CurrentNumber));
         }
+
+        [Fact]
+        public void NotifySubscribersMultipleTimes()
+        {
+            var subject = new RandomIntsForDays();
+            var numberFan = Substitute.For<ISubscriber>();
+            subject.AddSubscriber(numberFan);
+            
+            subject.GenerateNumber();
+            var firstValue = subject.CurrentNumber;
+            subject.GenerateNumber();
+            var secondValue = subject.CurrentNumber;
+            subject.GenerateNumber();
+            var thirdValue = subject.CurrentNumber;
+            
+            numberFan.Received().Notify(Arg.Is(firstValue));
+            numberFan.Received().Notify(Arg.Is(secondValue));
+            numberFan.Received().Notify(Arg.Is(thirdValue));
+
+        }
     }
 }
