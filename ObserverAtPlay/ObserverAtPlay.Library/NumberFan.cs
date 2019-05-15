@@ -37,5 +37,10 @@ namespace ObserverAtPlay.Library
             subject.RemoveSubscriber(this);
             Subscription = null;
         }
+
+        public string WriteBlast()
+        {
+            return Letter.ToString();
+        }
     }
 }

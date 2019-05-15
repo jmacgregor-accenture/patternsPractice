@@ -20,9 +20,9 @@ namespace ObserverAtPlay.Tests
         {
             var subscriber = new NumberFan();
             var newValue = 3;
-            
+
             subscriber.Notify(newValue);
-            
+
             subscriber.FavoriteNumber.ShouldBe(newValue);
         }
 
@@ -68,10 +68,32 @@ namespace ObserverAtPlay.Tests
             var letter = Substitute.For<IWrittenMessage>();
             var subscriber = new NumberFan(letter);
             var newFavorite = 3;
-            
+
             subscriber.Notify(newFavorite);
-            
+
             letter.Received().AddBody(Arg.Is<string>(x => x.Contains("3")));
+        }
+
+        [Fact]
+        public void WriteEmailBlast()
+        {
+            var subscriber = new NumberFan();
+
+            var result = subscriber.WriteBlast();
+
+            result.ShouldNotBeEmpty();
+        }
+
+        [Fact]
+        public void WriteBlastBasedOnUpdate()
+        {
+            var subscriber = new NumberFan();
+            var testNumber = 5;
+            subscriber.Notify(5);
+
+            var result = subscriber.WriteBlast();
+
+            result.ShouldContain(testNumber.ToString());
         }
     }
 }
