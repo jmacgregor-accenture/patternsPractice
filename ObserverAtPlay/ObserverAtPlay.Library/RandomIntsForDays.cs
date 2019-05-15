@@ -23,7 +23,7 @@ namespace ObserverAtPlay.Library
 
         public void AddSubscriber(ISubscriber subscriber)
         {
-            Subscribers.Append(subscriber);
+            Subscribers.Add(subscriber);
         }
     }
 }
