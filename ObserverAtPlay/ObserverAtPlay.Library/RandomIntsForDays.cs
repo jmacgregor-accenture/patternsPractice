@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ObserverAtPlay.Library
 {
     public class RandomIntsForDays
     {
-        public IEnumerable<ISubscriber> Subscribers { get;}
+        public List<ISubscriber> Subscribers { get;}
 
         public RandomIntsForDays()
         {
@@ -19,6 +19,11 @@ namespace ObserverAtPlay.Library
         {
             var random = new Random();
             return random.Next();
+        }
+
+        public void AddSubscriber(ISubscriber subscriber)
+        {
+            Subscribers.Append(subscriber);
         }
     }
 }

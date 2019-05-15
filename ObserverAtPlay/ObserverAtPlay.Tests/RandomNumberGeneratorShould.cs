@@ -35,5 +35,16 @@ namespace ObserverAtPlay.Tests
 
             subject.Subscribers.Count().ShouldBe(0);
         }
+
+        [Fact(Skip = "Refactoring Subject class")]
+        public void AddSubscribers()
+        {
+            var subject = new RandomIntsForDays();
+            var numberFan = new NumberFan();
+
+            subject.AddSubscriber(numberFan);
+            
+            subject.Subscribers.Count().ShouldBe(1);
+        }
     }
 }
