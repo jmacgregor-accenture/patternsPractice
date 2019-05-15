@@ -37,5 +37,20 @@ namespace ObserverAtPlay.Tests
             subject.Received().AddSubscriber(Arg.Is(subscriber));
             subscriber.Subscription.ShouldBe(subject);
         }
+
+        [Fact]
+        public void UnsubscribeFromSubject()
+        {
+            var subject = Substitute.For<ISubject>();
+            var subscriber = new NumberFan
+            {
+                Subscription = subject
+            };
+
+            subscriber.Unsubscribe(subject);
+
+            subject.Received().RemoveSubscriber(Arg.Is(subscriber));
+            subscriber.Subscription.ShouldBeNull();
+        }
     }
 }

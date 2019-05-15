@@ -19,5 +19,11 @@ namespace ObserverAtPlay.Library
             subject.AddSubscriber(this);
             Subscription = subject;
         }
+
+        public void Unsubscribe(ISubject subject)
+        {
+            subject.RemoveSubscriber(this);
+            Subscription = null;
+        }
     }
 }
