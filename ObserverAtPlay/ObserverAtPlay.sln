@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObserverAtPlay.Library", "O
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObserverAtPlay.Tests", "ObserverAtPlay.Tests\ObserverAtPlay.Tests.csproj", "{C0484805-B962-43BE-9739-4155BC16E052}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObserverAtPlay.WeLikeNumbers", "ObserverAtPlay.WeLikeNumbers\ObserverAtPlay.WeLikeNumbers.csproj", "{4A0EFE15-ED25-48F0-AA1B-89BE2623B8ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{C0484805-B962-43BE-9739-4155BC16E052}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0484805-B962-43BE-9739-4155BC16E052}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0484805-B962-43BE-9739-4155BC16E052}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A0EFE15-ED25-48F0-AA1B-89BE2623B8ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A0EFE15-ED25-48F0-AA1B-89BE2623B8ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A0EFE15-ED25-48F0-AA1B-89BE2623B8ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A0EFE15-ED25-48F0-AA1B-89BE2623B8ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
