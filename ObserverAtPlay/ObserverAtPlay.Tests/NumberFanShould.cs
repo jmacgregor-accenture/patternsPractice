@@ -13,5 +13,16 @@ namespace ObserverAtPlay.Tests
 
             subscriber.FavoriteNumber.ShouldBeOfType<int>();
         }
+
+        [Fact]
+        public void GetNewFavoriteNumberAfterNotify()
+        {
+            var subscriber = new NumberFan();
+            var newValue = 3;
+            
+            subscriber.Notify(newValue);
+            
+            subscriber.FavoriteNumber.ShouldBe(newValue);
+        }
     }
 }

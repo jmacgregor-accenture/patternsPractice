@@ -1,3 +1,6 @@
+using System;
+using Microsoft.VisualBasic.CompilerServices;
+
 namespace ObserverAtPlay.Library
 {
     public class NumberFan : ISubscriber
@@ -6,7 +9,7 @@ namespace ObserverAtPlay.Library
         
         public void Notify(object newValue)
         {
-            
+            FavoriteNumber = (int) newValue;
         }
 
         
