@@ -52,5 +52,26 @@ namespace ObserverAtPlay.Tests
             subject.Received().RemoveSubscriber(Arg.Is(subscriber));
             subscriber.Subscription.ShouldBeNull();
         }
+
+        [Fact]
+        public void HaveFanMailLetter()
+        {
+            var letter = new FanMail("Hi", "Bye");
+            var subscriber = new NumberFan(letter);
+
+            subscriber.Letter.ToString().ShouldContain("Hi");
+        }
+
+        [Fact]
+        public void UpdateFanMailBodyWithNewFavoriteNumber()
+        {
+            var letter = Substitute.For<IWrittenMessage>();
+            var subscriber = new NumberFan(letter);
+            var newFavorite = 3;
+            
+            subscriber.Notify(newFavorite);
+            
+            letter.Received().AddBody(Arg.Is<string>(x => x.Contains("3")));
+        }
     }
 }

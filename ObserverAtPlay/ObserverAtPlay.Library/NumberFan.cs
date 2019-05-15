@@ -7,10 +7,22 @@ namespace ObserverAtPlay.Library
     {
         public int FavoriteNumber { get; set; }
         public ISubject Subscription { get; set; }
+        public IWrittenMessage Letter { get; }
+
+        public NumberFan()
+        {
+            Letter = new FanMail("Hi", "Bye");
+        }
+        
+        public NumberFan(IWrittenMessage letter)
+        {
+            Letter = letter;
+        }
 
         public void Notify(object newValue)
         {
             FavoriteNumber = (int) newValue;
+            Letter.AddBody($"My new Favorite Number Is {FavoriteNumber}!!!");
         }
 
 
