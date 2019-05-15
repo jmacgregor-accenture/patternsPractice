@@ -12,7 +12,8 @@ namespace ObserverAtPlay.Tests
         {
             var subject = new RandomIntsForDays();
 
-            var result = subject.GenerateNumber();
+            subject.GenerateNumber();
+            var result = subject.CurrentNumber;
 
             result.ShouldBeOfType<int>();
         }
@@ -22,8 +23,10 @@ namespace ObserverAtPlay.Tests
         {
             var subject = new RandomIntsForDays();
 
-            var firstNumber = subject.GenerateNumber();
-            var secondNumber = subject.GenerateNumber();
+            subject.GenerateNumber();
+            var firstNumber = subject.CurrentNumber;
+            subject.GenerateNumber();
+            var secondNumber = subject.CurrentNumber;
             
             firstNumber.ShouldNotBe(secondNumber);
         }

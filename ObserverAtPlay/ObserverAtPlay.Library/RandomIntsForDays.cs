@@ -6,6 +6,7 @@ namespace ObserverAtPlay.Library
 {
     public class RandomIntsForDays
     {
+        public int CurrentNumber { get; set; }
         public List<ISubscriber> Subscribers { get;}
 
         public RandomIntsForDays()
@@ -15,10 +16,10 @@ namespace ObserverAtPlay.Library
             Subscribers = emptySubscribers;
         }
         
-        public int GenerateNumber()
+        public void GenerateNumber()
         {
             var random = new Random();
-            return random.Next();
+            CurrentNumber = random.Next();
         }
 
         public void AddSubscriber(ISubscriber subscriber)
