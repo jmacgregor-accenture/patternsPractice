@@ -6,7 +6,14 @@ namespace ObserverAtPlay.Library
 {
     public class RandomIntsForDays
     {
-        public IEnumerable<ISubscriber> Subscribers { get; set; } = new List<ISubscriber>();
+        public IEnumerable<ISubscriber> Subscribers { get;}
+
+        public RandomIntsForDays()
+        {
+            var emptySubscribers = new List<ISubscriber>();
+
+            Subscribers = emptySubscribers;
+        }
         
         public int GenerateNumber()
         {
