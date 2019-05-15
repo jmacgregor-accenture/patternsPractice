@@ -21,10 +21,7 @@ namespace ObserverAtPlay.Library
             var random = new Random();
             CurrentNumber = random.Next();
 
-            foreach (var subscriber in Subscribers)
-            {
-                subscriber.Notify(CurrentNumber);
-            }
+            UpdateSubscribers();
         }
 
         public void AddSubscriber(ISubscriber subscriber)
@@ -35,6 +32,14 @@ namespace ObserverAtPlay.Library
         public void RemoveSubscriber(ISubscriber numberFan)
         {
             Subscribers.Remove(numberFan);
+        }
+
+        private void UpdateSubscribers()
+        {
+            foreach (var subscriber in Subscribers)
+            {
+                subscriber.Notify(CurrentNumber);
+            }
         }
     }
 }
