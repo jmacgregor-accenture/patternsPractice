@@ -1,8 +1,8 @@
 namespace csharpcore.Items
 {
-    public class BackStagePassItem : Item
+    public class BackStagePassQualityItem : IncreasingQualityItem
     {
-        public BackStagePassItem(string itemName, int itemQuality, int itemSellIn) : base(itemName, itemQuality, itemSellIn)
+        public BackStagePassQualityItem(string itemName, int itemQuality, int itemSellIn) : base(itemName, itemQuality, itemSellIn)
         {
             
         }
@@ -29,12 +29,5 @@ namespace csharpcore.Items
             }
         }
         
-        private void IncreaseQuality()
-        {
-            if (Quality < 50)
-            {
-                Quality += 1;
-            }
-        }
     }
 }

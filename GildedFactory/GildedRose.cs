@@ -24,7 +24,7 @@ namespace csharpcore
                 case "Sulfuras, Hand of Ragnaros":
                     return new LegendaryItem(name, quality, sellin);
                 case "Backstage passes to a TAFKAL80ETC concert":
-                    return new BackStagePassItem(name, quality, sellin);
+                    return new BackStagePassQualityItem(name, quality, sellin);
                 default:
                     return new Item(name, quality, sellin);
             }
