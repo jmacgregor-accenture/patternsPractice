@@ -1,10 +1,12 @@
-﻿namespace FactoryImplemented.Library
+﻿using FactoryImplemented.Library.Pizzas;
+
+namespace FactoryImplemented.Library
 {
     public class PizzaStore
     {
-        public Pizza OrderPizza()
+        public IPizza OrderPizza()
         {
-            return new Pizza();
+            return new CheesePizza();
         }
     }
 }
