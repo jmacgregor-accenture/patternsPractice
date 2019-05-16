@@ -26,5 +26,15 @@ namespace FactoryImplemented.Tests
             
             result.ShouldBeOfType<CheesePizza>();
         }
+
+        [Fact]
+        public void ReturnPepperoniWhenRequested()
+        {
+            var store = new PizzaStore();
+
+            var result = store.OrderPizza("pepperoni");
+            
+            result.ShouldBeOfType<PepperoniPizza>();
+        }
     }
 }
