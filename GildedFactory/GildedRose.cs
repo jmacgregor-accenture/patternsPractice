@@ -5,6 +5,7 @@ namespace csharpcore
     public class GildedRose
     {
         IList<Item> Items;
+
         public GildedRose(IList<Item> Items)
         {
             this.Items = Items;
@@ -17,9 +18,9 @@ namespace csharpcore
                 var item = Items[i];
                 var name = item.Name;
 
-                if (name == "+5 Dexterity Vest")
+                if (name == "Sulfuras, Hand of Ragnaros")
                 {
-                    
+                    continue;
                 }
 
                 if (name != "Backstage passes to a TAFKAL80ETC concert" &&
@@ -29,50 +30,20 @@ namespace csharpcore
                     item.Update();
                     continue;
                 }
-                
+
                 if (name == "Backstage passes to a TAFKAL80ETC concert")
                 {
                     HandleBackStagePass(item);
                     continue;
                 }
-                
-                if (name != "Aged Brie" && name != "Backstage passes to a TAFKAL80ETC concert")
-                {
-                    if (Items[i].Quality > 0)
-                    {
-                        DecreaseQuality(item);
-                    }
-                }
-                else
-                {
-                    IncreaseQuality(item);
-                }
 
-                if (name != "Sulfuras, Hand of Ragnaros")
-                {
-                    Items[i].SellIn = Items[i].SellIn - 1;
-                }
+                IncreaseQuality(item);
+
+                Items[i].SellIn = Items[i].SellIn - 1;
 
                 if (item.SellIn < 0)
                 {
-                    if (name != "Aged Brie")
-                    {
-                        if (name != "Backstage passes to a TAFKAL80ETC concert")
-                        {
-                            if (item.Quality > 0)
-                            {
-                                DecreaseQuality(item);
-                            }
-                        }
-                        else
-                        {
-                            item.Quality = 0;
-                        }
-                    }
-                    else
-                    {
-                        IncreaseQuality(item);
-                    }
+                    IncreaseQuality(item);
                 }
             }
         }
@@ -80,9 +51,9 @@ namespace csharpcore
         private void HandleBackStagePass(Item item)
         {
             IncreaseQuality(item);
-            
+
             item.SellIn--;
-            
+
             if (item.SellIn < 10)
             {
                 IncreaseQuality(item);
