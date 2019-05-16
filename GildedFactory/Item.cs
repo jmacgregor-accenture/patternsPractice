@@ -8,7 +8,21 @@
 
         public void Update()
         {
-            
+            SellIn--;
+            DecreaseQuality();
+
+            if (SellIn < 0)
+            {
+                DecreaseQuality();
+            }
+        }
+
+        private void DecreaseQuality()
+        {
+            if (Quality > 0)
+            {
+                Quality--;
+            }
         }
     }
 }

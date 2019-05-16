@@ -16,6 +16,19 @@ namespace csharpcore
             {
                 var item = Items[i];
                 var name = item.Name;
+
+                if (name == "+5 Dexterity Vest")
+                {
+                    
+                }
+
+                if (name != "Backstage passes to a TAFKAL80ETC concert" &&
+                    name != "Aged Brie" &&
+                    name != "Sulfuras, Hand of Ragnaros")
+                {
+                    item.Update();
+                    continue;
+                }
                 
                 if (name == "Backstage passes to a TAFKAL80ETC concert")
                 {
@@ -32,15 +45,7 @@ namespace csharpcore
                 }
                 else
                 {
-                    if (item.Quality < 50)
-                    {
-                        item.Quality += 1;
-
-//                        if (name == "Backstage passes to a TAFKAL80ETC concert")
-//                        {
-//                            HandleBackStagePass(i);
-//                        }
-                    }
+                    IncreaseQuality(item);
                 }
 
                 if (name != "Sulfuras, Hand of Ragnaros")
