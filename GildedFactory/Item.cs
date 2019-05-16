@@ -5,8 +5,17 @@
         public string Name { get; set; }
         public int SellIn { get; set; }
         public int Quality { get; set; }
-
-        public void Update()
+        
+        public Item() {}
+        
+        protected Item(string itemName, int itemQuality, int itemSellIn)
+        {
+            Name = itemName;
+            SellIn = itemSellIn;
+            Quality = itemQuality;
+        }
+        
+        public virtual void Update()
         {
             SellIn--;
             DecreaseQuality();

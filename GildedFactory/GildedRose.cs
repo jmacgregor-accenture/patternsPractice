@@ -20,7 +20,7 @@ namespace csharpcore
 
                 if (name == "Sulfuras, Hand of Ragnaros")
                 {
-                    continue;
+                    item = new LegendaryItem(item.Name, item.Quality, item.SellIn);
                 }
                 
                 if (name == "Backstage passes to a TAFKAL80ETC concert")
@@ -29,20 +29,25 @@ namespace csharpcore
                     continue;
                 }
 
-                if (name != "Aged Brie")
+                if (name == "Aged Brie")
                 {
-                    item.Update();
+                    HandleBrie(item);
                     continue;
                 }
                 
+                item.Update();
+            }
+        }
+
+        private void HandleBrie(Item item)
+        {
+            IncreaseQuality(item);
+
+            item.SellIn--;
+
+            if (item.SellIn < 0)
+            {
                 IncreaseQuality(item);
-
-                Items[i].SellIn = Items[i].SellIn - 1;
-
-                if (item.SellIn < 0)
-                {
-                    IncreaseQuality(item);
-                }
             }
         }
 
@@ -65,14 +70,6 @@ namespace csharpcore
             if (item.SellIn < 0)
             {
                 item.Quality = 0;
-            }
-        }
-
-        private void DecreaseQuality(Item item)
-        {
-            if (item.Name != "Sulfuras, Hand of Ragnaros")
-            {
-                item.Quality -= 1;
             }
         }
 
