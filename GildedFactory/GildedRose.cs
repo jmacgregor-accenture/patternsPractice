@@ -1,35 +1,40 @@
 ﻿using System.Collections.Generic;
+using csharpcore.Items;
 
 namespace csharpcore
 {
     public class GildedRose
     {
-        IList<Item> Items;
+        public IList<Item> Items;
 
         public GildedRose(IList<Item> Items)
         {
-            this.Items = Items;
+            this.Items = new List<Item>();
+
+            foreach (var item in Items)
+            {
+                this.Items.Add(ItemFactory(item.Name, item.Quality, item.SellIn));
+            }
+        }
+
+        private Item ItemFactory(string name, int quality, int sellin)
+        {
+            switch (name)
+            {
+                case "Sulfuras, Hand of Ragnaros":
+                    return new LegendaryItem(name, quality, sellin);
+                case "Backstage passes to a TAFKAL80ETC concert":
+                    return new BackStagePassItem(name, quality, sellin);
+                default:
+                    return new Item(name, quality, sellin);
+            }
         }
 
         public void UpdateQuality()
         {
-            for (var i = 0; i < Items.Count; i++)
+            foreach (var item in Items)
             {
-                var item = Items[i];
-                var name = item.Name;
-
-                if (name == "Sulfuras, Hand of Ragnaros")
-                {
-                    item = new LegendaryItem(item.Name, item.Quality, item.SellIn);
-                }
-                
-                if (name == "Backstage passes to a TAFKAL80ETC concert")
-                {
-                    HandleBackStagePass(item);
-                    continue;
-                }
-
-                if (name == "Aged Brie")
+                if (item.Name == "Aged Brie")
                 {
                     HandleBrie(item);
                     continue;
@@ -37,6 +42,8 @@ namespace csharpcore
                 
                 item.Update();
             }
+            
+            
         }
 
         private void HandleBrie(Item item)

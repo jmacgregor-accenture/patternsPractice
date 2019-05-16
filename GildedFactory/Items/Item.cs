@@ -1,4 +1,4 @@
-﻿namespace csharpcore
+﻿namespace csharpcore.Items
 {
     public class Item
     {
@@ -8,7 +8,7 @@
         
         public Item() {}
         
-        protected Item(string itemName, int itemQuality, int itemSellIn)
+        public Item(string itemName, int itemQuality, int itemSellIn)
         {
             Name = itemName;
             SellIn = itemSellIn;

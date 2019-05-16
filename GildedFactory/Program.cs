@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using csharpcore.Items;
 
 namespace csharpcore
 {
@@ -44,9 +45,9 @@ namespace csharpcore
             {
                 Console.WriteLine("-------- day " + i + " --------");
                 Console.WriteLine("name, sellIn, quality");
-                for (var j = 0; j < Items.Count; j++)
+                for (var j = 0; j < app.Items.Count; j++)
                 {
-                    System.Console.WriteLine(Items[j].Name + ", " + Items[j].SellIn + ", " + Items[j].Quality);
+                    Console.WriteLine(app.Items[j].Name + ", " + app.Items[j].SellIn + ", " + app.Items[j].Quality);
                 }
                 Console.WriteLine("");
                 app.UpdateQuality();
