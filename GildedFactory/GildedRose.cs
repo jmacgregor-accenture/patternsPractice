@@ -22,21 +22,19 @@ namespace csharpcore
                 {
                     continue;
                 }
-
-                if (name != "Backstage passes to a TAFKAL80ETC concert" &&
-                    name != "Aged Brie" &&
-                    name != "Sulfuras, Hand of Ragnaros")
-                {
-                    item.Update();
-                    continue;
-                }
-
+                
                 if (name == "Backstage passes to a TAFKAL80ETC concert")
                 {
                     HandleBackStagePass(item);
                     continue;
                 }
 
+                if (name != "Aged Brie")
+                {
+                    item.Update();
+                    continue;
+                }
+                
                 IncreaseQuality(item);
 
                 Items[i].SellIn = Items[i].SellIn - 1;
