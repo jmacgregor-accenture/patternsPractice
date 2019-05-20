@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EverCraft.Library", "EverCraft.Library\EverCraft.Library.csproj", "{DFEEF1B5-EC5A-47A6-9518-128CD4998396}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EverCraft.Tests", "EverCraft.Tests\EverCraft.Tests.csproj", "{BF4E8286-0D58-4176-B833-8D8F9C51134D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DFEEF1B5-EC5A-47A6-9518-128CD4998396}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFEEF1B5-EC5A-47A6-9518-128CD4998396}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFEEF1B5-EC5A-47A6-9518-128CD4998396}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFEEF1B5-EC5A-47A6-9518-128CD4998396}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF4E8286-0D58-4176-B833-8D8F9C51134D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF4E8286-0D58-4176-B833-8D8F9C51134D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF4E8286-0D58-4176-B833-8D8F9C51134D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF4E8286-0D58-4176-B833-8D8F9C51134D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
