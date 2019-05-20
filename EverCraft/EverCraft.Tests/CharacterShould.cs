@@ -17,5 +17,16 @@ namespace EverCraft.Tests
 
             character.Name.ShouldBe(testName);
         }
+
+        [Fact]
+        public void HaveAlignment()
+        {
+            var testAlignment = "Good";
+            var character = new Character();
+
+            character.Alignment = testAlignment;
+
+            character.Alignment.ShouldBe(testAlignment);
+        }
     }
 }
