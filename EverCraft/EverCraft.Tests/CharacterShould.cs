@@ -21,7 +21,7 @@ namespace EverCraft.Tests
         [Fact]
         public void HaveAlignment()
         {
-            var testAlignment = "Good";
+            var testAlignment = Alignment.Good;
             var character = new Character();
 
             character.Alignment = testAlignment;
