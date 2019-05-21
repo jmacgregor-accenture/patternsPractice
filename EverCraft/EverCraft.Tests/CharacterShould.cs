@@ -32,6 +32,17 @@ namespace EverCraft.Tests
         }
 
         [Fact]
+        public void TakeDamage()
+        {
+            var character = new Character("Eric", Alignment.Evil);
+            var startingHP = character.HitPoints;
+
+            character.TakeDamage();
+            
+            character.HitPoints.ShouldBe(startingHP - 1);
+        }
+
+        [Fact]
         public void DamageEnemiesWhenDieRollIsHighEnough()
         {
             var character = new Character("Graham", Alignment.Good);

@@ -26,5 +26,10 @@ namespace EverCraft.Library
 
             return false;
         }
+
+        public void TakeDamage()
+        {
+            HitPoints--;
+        }
     }
 }
