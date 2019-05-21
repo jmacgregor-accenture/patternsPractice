@@ -43,6 +43,19 @@ namespace EverCraft.Tests
         }
 
         [Fact]
+        public void DieWhenHitPointsHitZero()
+        {
+            var character = new Character("Terry", Alignment.Good);
+
+            for (var i = 0; i < 5; i++)
+            {
+                character.TakeDamage();
+            }
+
+            character.IsAlive.ShouldBeFalse();
+        }
+
+        [Fact]
         public void DamageEnemiesWhenDieRollIsHighEnough()
         {
             var character = new Character("Graham", Alignment.Good);

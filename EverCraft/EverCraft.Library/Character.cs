@@ -8,6 +8,7 @@ namespace EverCraft.Library
         public Alignment Alignment { get; }
         public int HitPoints { get; set; }
         public int Armor { get; set; }
+        public bool IsAlive { get; set; }
 
         public Character(string name, Alignment alignment)
         {
@@ -15,6 +16,7 @@ namespace EverCraft.Library
             Alignment = alignment;
             HitPoints = 5;
             Armor = 10;
+            IsAlive = true;
         }
 
         public bool Attack(int dieRoll, Character opponent)
@@ -30,6 +32,11 @@ namespace EverCraft.Library
         public void TakeDamage()
         {
             HitPoints--;
+
+            if (HitPoints <= 0)
+            {
+                IsAlive = false;
+            }
         }
     }
 }
