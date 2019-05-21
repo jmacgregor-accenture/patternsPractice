@@ -80,5 +80,19 @@ namespace EverCraft.Tests
             result.ShouldBeTrue();
             opponent.HitPoints.ShouldBe(startingHP - 1);
         }
+
+        [Fact]
+        public void NotHitOrDamageWhenRollIsTooLow()
+        {
+            var character = new Character("Graham", Alignment.Good);
+            var opponent = new Character("John", Alignment.Neutral);
+            var startingHP = opponent.HitPoints;
+            var dieRoll = 5;
+
+            var result = character.Attack(dieRoll, opponent);
+
+            result.ShouldBeFalse();
+            opponent.HitPoints.ShouldBe(startingHP);
+        }
     }
 }
