@@ -16,5 +16,15 @@ namespace EverCraft.Library
             HitPoints = 5;
             Armor = 10;
         }
+
+        public bool Attack(int dieRoll, Character opponent)
+        {
+            if (dieRoll >= opponent.Armor)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

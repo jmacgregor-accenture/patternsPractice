@@ -30,5 +30,17 @@ namespace EverCraft.Tests
             character.HitPoints.ShouldBe(5);
             character.Armor.ShouldBe(10);
         }
+
+        [Fact]
+        public void DamageEnemiesWhenDieRollIsHighEnough()
+        {
+            var character = new Character("Graham", Alignment.Good);
+            var opponent = new Character("John", Alignment.Neutral);
+            var dieRoll = 10;
+
+            var result = character.Attack(dieRoll, opponent);
+
+            result.ShouldBeTrue();
+        }
     }
 }
