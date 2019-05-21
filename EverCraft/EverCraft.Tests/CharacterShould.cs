@@ -56,7 +56,7 @@ namespace EverCraft.Tests
         }
 
         [Fact]
-        public void DamageEnemiesWhenDieRollIsHighEnough()
+        public void HitEnemiesWhenDieRollIsHighEnough()
         {
             var character = new Character("Graham", Alignment.Good);
             var opponent = new Character("John", Alignment.Neutral);
@@ -65,6 +65,20 @@ namespace EverCraft.Tests
             var result = character.Attack(dieRoll, opponent);
 
             result.ShouldBeTrue();
+        }
+
+        [Fact]
+        public void DamageEnemiesWhenAttackSucceeds()
+        {
+            var character = new Character("Graham", Alignment.Good);
+            var opponent = new Character("John", Alignment.Neutral);
+            var startingHP = opponent.HitPoints;
+            var dieRoll = 10;
+
+            var result = character.Attack(dieRoll, opponent);
+
+            result.ShouldBeTrue();
+            opponent.HitPoints.ShouldBe(startingHP - 1);
         }
     }
 }

@@ -23,6 +23,7 @@ namespace EverCraft.Library
         {
             if (dieRoll >= opponent.Armor)
             {
+                opponent.TakeDamage();
                 return true;
             }
 
