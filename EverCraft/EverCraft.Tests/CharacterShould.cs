@@ -8,24 +8,14 @@ namespace EverCraft.Tests
     public class CharacterShould
     {
         [Fact]
-        public void HaveName()
+        public void HaveNameAndAlignment()
         {
             var testName = "Bob";
-            var character = new Character();
+            var testAlignment = Alignment.Evil;
 
-            character.Name = testName;
-
+            var character = new Character(testName, testAlignment);
+            
             character.Name.ShouldBe(testName);
-        }
-
-        [Fact]
-        public void HaveAlignment()
-        {
-            var testAlignment = Alignment.Good;
-            var character = new Character();
-
-            character.Alignment = testAlignment;
-
             character.Alignment.ShouldBe(testAlignment);
         }
     }
